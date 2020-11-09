@@ -1,0 +1,31 @@
+{
+  "name": "event_registration_and_validation",
+  "version": "1.0.0",
+  "description": "Creating a user registration form with proper validation and representation of the user data using Chart.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amitravikumar/Event-Sign-Up-registration-and-representation-using-Chart.js.git"
+  },
+  "author": "Amit Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amitravikumar/Event-Sign-Up-registration-and-representation-using-Chart.js/issues"
+  },
+  "homepage": "https://github.com/amitravikumar/Event-Sign-Up-registration-and-representation-using-Chart.js#readme",
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "joi": "^17.3.0",
+    "nodemon": "^2.0.6",
+    "pg": "^8.4.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
+  },
+  "keywords": []
+}
