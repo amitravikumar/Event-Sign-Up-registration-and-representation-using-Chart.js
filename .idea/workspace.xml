@@ -20,12 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d524b0-9430-43c7-ba93-2553d8eae7c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Event Sign-Up registration and representation using Chart.js.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/model/signupData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/model/signupData.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604894739304</updated>
       <workItem from="1604894741858" duration="2222000" />
+      <workItem from="1604897016633" duration="1454000" />
     </task>
     <servers />
   </component>
@@ -74,6 +71,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="916" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604896603689">
