@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand " href="/">Our Event</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-5">
+            <li class="nav-item pl-5 {{#if (ifEquality title "Sign up")}}active{{/if}}">
+                <a class="nav-link" href="/signup">Sign Up {{#if (ifEquality title "Sign up")}}<span
+                        class="sr-only">(current)</span>{{/if}}</a>
+            </li>
+            <li class="nav-item pl-5 {{#if (ifEquality title "Charts")}}active{{/if}}">
+                <a class="nav-link" href="/charts">Charts {{#if (ifEquality title "Charts")}}<span
+                        class="sr-only">(current)</span>{{/if}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
