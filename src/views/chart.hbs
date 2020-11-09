@@ -1,0 +1,172 @@
+<div class="container my-5">
+    <h1> These are <span>Live Data</span> of people signed up for
+        <span>Our event</span></h1>
+</div>
+<div class="container my-5 py-3 px-3 boxs">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-sm-8 col-md-5 mt-n5 mr-3">
+            <h1> <span>Gender</span> wise data</h1>
+            <p class="my-3"> This Bar graph represents the data of people of different Gender attending
+                our event. Currently as per the specification only Male and Female are specified that doesn't mean
+                that we don't recognize or avoid <b>LGBT community</b>.
+            </p>
+        </div>
+        <div style="col-sm-8 col-md-5">
+            <input type="hidden" id="genderLabel" value={{label1}} />
+            <input type="hidden" id="genderCount" value={{data1}} />
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container my-5 py-3 px-3 boxs">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-sm-8 col-md-5 mt-n5 mr-3">
+            <h1> <span>Profession</span> wise data</h1>
+            <p class="my-3"> This Bar graph represents the data of people of different profession attending
+                our event. Since our Event will be primarily focused on people from these sectors we are
+                specifying them. People from <b>Other sectors</b> are also welcome aslong as they are willing to
+                learn what we teach.
+            </p>
+        </div>
+        <div style="col-sm-8 col-md-5">
+            <input type="hidden" id="professionLabel" value={{label2}} />
+            <input type="hidden" id="professionalCount" value={{data2}} />
+            <canvas id="profession" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+</div>
+<br>
+<div class="container my-5 py-3 px-3 boxs">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-sm-8 col-md-5 mt-n5 mr-3">
+            <h1> <span>Experience</span> wise data</h1>
+            <p class="my-3"> This pie chart represents the data of people of different experiences attending
+                our event. For easily identifying the people we have split the experience into three groups. And
+                we have also limited the experience to <span> 40 </span> years, Cause if its more than that you would
+                have already hit 60, So just take care of your <span>health</span> and <span>grandChild</span> (Sorry
+                Camel case has become a habit now.. Phew.. JS!!).
+            </p>
+        </div>
+        <div style="col-sm-8 col-md-5">
+            <input type="hidden" id="experienceCount" value={{data3}} />
+            <canvas id="experience" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+</div>
+<script>
+    var ctx = document.getElementById('myChart');
+    var profession = document.getElementById('profession');
+    var experience = document.getElementById('experience');
+    let genderLabel = document.getElementById('genderLabel').value;
+    genderLabel = genderLabel.split(",")
+    let genderCount = document.getElementById('genderCount').value;
+    genderCount = genderCount.split(",")
+    let professionLabel = document.getElementById('professionLabel').value;
+    professionLabel = professionLabel.split(",")
+    let professionalCount = document.getElementById('professionalCount').value;
+    professionalCount = professionalCount.split(",")
+    let experienceCount = document.getElementById('experienceCount').value;
+    experienceCount = experienceCount.split(",")
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: genderLabel,
+            datasets: [{
+                label: genderLabel,
+                data: genderCount,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Gender Count'
+            },
+            legend: {
+                display: false
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem) {
+                        return tooltipItem.yLabel;
+                    }
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    var myChart = new Chart(profession, {
+        type: 'bar',
+        data: {
+            labels: professionLabel,
+            datasets: [{
+                label: professionLabel,
+                data: professionalCount,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Profession wise count'
+            },
+            legend: {
+                display: false
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem) {
+                        return tooltipItem.yLabel;
+                    }
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    let barchart = new Chart(experience, {
+        type: 'doughnut',
+        data: {
+            labels: ["0-2 exp", "2-6 exp", " >6 exp"],
+            datasets: [{
+                label: 'Points',
+                backgroundColor: ['#f1c406', '#e67e22', '#16a085'],
+                data: experienceCount
+            }]
+        }
+    })
+</script>

@@ -1,0 +1,159 @@
+<div class="container my-5 py-3 ">
+    <h1>Sign Up for our event</h1>
+    <form id="user-form" class="my-5" action="{{action}}" method="{{method}}" _method="{{method}}" autocomplete="off">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" onkeyup="inputChecker(this)" required>
+                <div class="invalid-feedback"> Please Enter a Valid First Name</div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" onkeyup="inputChecker(this)" required>
+                <div class="invalid-feedback"> Please Enter a Valid Last Name</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contactNo">Contact Number</label>
+            <input type="text" class="form-control" id="contactNo" name="contactNo" onkeyup="inputChecker(this)" required>
+            <div class="invalid-feedback"> Please enter a valid Indian Contact number ( 0 - 9 & 10 digits)</div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="city" onkeyup="inputChecker(this)" required>
+                <div class="invalid-feedback"> Please Enter a Valid City</div>
+            </div>
+            <div class="form-group col-md-1">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="profession">profession</label>
+                <select class="form-control" id="profession" name="profession">
+                    <option value="IT">IT</option>
+                    <option value="Management">Management</option>
+                    <option value="Student">Student</option>
+                    <option value="Content-Writer">Content-Writer</option>
+                </select>
+            </div>
+            <div class="form-group col-md-1">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="experience">Experience</label>
+                <input type="number" class="form-control" id="experience" name="experience" onkeyup="expChecker(this)" required>
+                <div class="invalid-feedback"> Experience must be greater than 0 and less than 40</div>
+            </div>
+            <div class="form-group col-md-1">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="user-gender">Gender</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="Male" required value="Male">
+                        <label class="form-check-label" for="Male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="Female" value="Female">
+                        <label class="form-check-label" for="Female">Female</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">
+            Sign Up
+        </button>
+    </form>
+</div>
+
+
+<script>
+    const $addUserform = document.querySelector("#user-form");
+    const phoneNumFormat = /^\d{10}$/
+    const stringFormat = /^[A-Za-z]*$/
+    const validationObject = {
+        "firstName": true,
+        "lastName": true,
+        "city": true,
+        "contactno": true,
+        "experience": true
+    }
+    //Front-end Validations
+    const inputChecker = element => {
+        const data = element.value
+        const matcher = (element.id === "contactNo") ? phoneNumFormat : stringFormat;
+        if (!data.match(matcher)) {
+            element.setAttribute("class", "form-control is-invalid")
+            validationObject[element.id] = false
+        } else {
+            element.setAttribute("class", "form-control")
+            validationObject[element.id] = true
+        }
+    }
+    const expChecker = element => {
+        const data = element.value
+        if (data < 0 || data > 40) {
+            element.setAttribute("class", "form-control is-invalid")
+            validationObject[element.id] = false
+        } else {
+            element.setAttribute("class", "form-control")
+            validationObject[element.id] = true
+        }
+    }
+    $addUserform.addEventListener("submit", event => {
+        event.preventDefault()
+        for (var key in validationObject) {
+            if (!validationObject[key]) {
+                swal("Error", "Please enter Correct data before submitting the form", "warning");
+                return false;
+            }
+        }
+        const submitUrl = $addUserform.action;
+        const submitMethod = $addUserform.getAttribute("_method");
+        const formData = new FormData($addUserform);
+        let userDetail = {};
+        for (const fields of formData.entries()) {
+            const [key, value] = fields;
+            userDetail[key] = value;
+        }
+        const config = {
+            method: submitMethod.toUpperCase(),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userDetail)
+        }
+        fetch(submitUrl, config)
+                .then(response => {
+                            if (response.status === 200) {
+                                return response.json()
+                            } else {
+                                throw (new Error(response.status))
+                            }
+                        }
+                )
+                .then(data => {
+                    swal("Great Job!!", data.message, "success");
+                    $addUserform.reset()
+                })
+                .catch(error => {
+                    switch (error.message) {
+                        case "401":
+                            swal("Error", "Contact Number has already been registered.", "error");
+                            break;
+                        case "400":
+                            swal("Error", "Please check form values...", "error");
+                            break;
+                        case "500":
+                            swal("Error", "Please Try after some time...", "error");
+                            break;
+                        default:
+                            console.error(error);
+                    }
+                })
+    })
+</script>

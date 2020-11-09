@@ -21,12 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="51d524b0-9430-43c7-ba93-2553d8eae7c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/seeder/dataSeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/seeder/dataSeeder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/helpers/ifEquality.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/helpers/ifEquality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/layouts/navigation.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/layouts/navigation.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partials/footer.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/footer.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partials/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/header.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partials/navbar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/navbar.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/chart.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/chart.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/home.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/signup.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604894739304</updated>
       <workItem from="1604894741858" duration="2222000" />
-      <workItem from="1604897016633" duration="3781000" />
+      <workItem from="1604897016633" duration="6701000" />
     </task>
     <servers />
   </component>
